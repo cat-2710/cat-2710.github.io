@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %>
+    <!-- Contacto -->
+    <section>
+        <h2>Contáctanos</h2>
+        <div class="form-contacto">
+            <% if(mensaje) { %>
+                <p style="color:green; text-align:center; margin-bottom:15px;">
+                    <%= mensaje %>
+                </p>
+                <% } %>
+                    <% if(error) { %>
+                        <p style="color:red; text-align:center; margin-bottom:15px;">
+                            <%= error %>
+                        </p>
+                        <% } %>
+                            <form method="POST" action="/contacto">
+                                <input type="text" name="nombre" placeholder="Tu nombre" required>
+                                <input type="email" name="email" placeholder="Tu correo" required>
+                                <input type="text" name="asunto" placeholder="Asunto" required>
+                                <textarea name="mensaje" placeholder="Tu mensaje"></textarea>
+                                <button type="submit" class="btn">Enviar mensaje</button>
+                            </form>
+        </div>
+    </section>
+    <%- include('partials/footer.ejs') %>

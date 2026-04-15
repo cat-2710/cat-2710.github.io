@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Categorías</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+    <!-- Navbar Admin -->
+    <nav class="navbar">
+        <div class="logo">
+        <img src="/img/productos/pizzeriia-umaru.png">
+        <span id="logo-text">Pizza-chan ピッツェリアちゃん</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/admin/categorias" class="active">Categorías</a></li>
+            <li><a href="/admin/productos" class="active">Productos</a></li>
+            <li><a href="#" onclick="cerrarSesion()">Cerrar sesión</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Gestión de Categorías</h2>
+
+        <!-- Formulario -->
+        <div class="card" style="max-width:500px; margin:0 auto 30px auto;">
+            <h3 id="form-titulo">Nueva Categoría</h3>
+            <input type="hidden" id="cat-id">
+            <input type="text" id="cat-codigo" placeholder="Código" class="input-admin">
+            <input type="text" id="cat-nombre" placeholder="Nombre" class="input-admin">
+            <div class="botones" style="margin-top:10px;">
+                <button class="btn" onclick="guardarCategoria()">Guardar</button>
+                <button class="btn" style="background:#95a5a6" onclick="limpiarForm()">Limpiar</button>
+            </div>
+            <div id="msg-categoria" style="margin-top:10px;"></div>
+        </div>
+
+        <!-- Tabla -->
+        <div style="max-width:700px; margin:0 auto;">
+            <table class="tabla-admin">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Status</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-categorias"></tbody>
+            </table>
+        </div>
+    </section>
+    <script src="/js/admin/auth.js"></script>
+    <script src="/js/admin/categorias.js"></script>
+    <script type="module" src="/js/admin/animation.js"></script>
+</body>
+</html>

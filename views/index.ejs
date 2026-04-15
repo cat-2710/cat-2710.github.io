@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzería</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">
+                <img src="/img/productos/pizzeriia-umaru.png">
+            </a>
+            <span id="logo-text">Pizza-chan ピッツェリアちゃん</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/productos">Productos</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+            <li><a href="/nosotros">Nosotros</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="/img/productos/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-contenido">
+            <h1>Bienvenido a Pizza-chan</h1>
+            <p>Las mejores pizzas de la ciudad</p>
+            <a href="/productos" class="btn">Ver Menú</a>
+        </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="mision-vision">
+        <div class="mv-card">
+            <h3>Misión</h3>
+            <p>Ofrecer las mejores pizzas artesanales con ingredientes frescos, brindando una experiencia única a
+                nuestros clientes.</p>
+        </div>
+        <div class="mv-card">
+            <h3>Visión</h3>
+            <p>Ser la pizzería más reconocida de la ciudad, sinónimo de calidad, sabor y servicio excepcional.</p>
+        </div>
+    </section>
+
+    <!-- Categorías -->
+    <section class="categorias">
+        <h2>Nuestras Categorías</h2>
+        <div class="cards">
+            <% categorias.forEach(categoria=> { %>
+                <div class="card card-categoria">
+                    <h3>
+                        <%= categoria.nombre %>
+                    </h3>
+                    <a href="/productos?categoria=<%= categoria.id %>" class="btn">Ver más</a>
+                </div>
+                <% }) %>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+        <script type="module" src="/js/admin/animation.js"></script>
+</body>
+
+</html>

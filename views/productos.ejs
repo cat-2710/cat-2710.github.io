@@ -1,0 +1,40 @@
+<%- include('partials/header.ejs') %>
+    <!-- Categorias filtro -->
+    <section>
+        <h2>Nuestros Productos</h2>
+        <div class="cards">
+            <a href="/productos" class="btn">Todos</a>
+            <% categorias.forEach(cat=> { %>
+                <a href="/productos?categoria=<%= cat.id %>" class="btn">
+                    <%= cat.nombre %>
+                </a>
+                <% }) %>
+        </div>
+    </section>
+
+    <!-- Productos -->
+    <section>
+        <div class="cards">
+            <% if(productos.length===0) { %>
+                <p>No hay productos disponibles.</p>
+                <% } else { %>
+                    <% productos.forEach(producto=> { %>
+                        <div class="card">
+                            <% if(producto.urlImagen) { %>
+                                <img src="<%= producto.urlImagen %>" alt="<%= producto.nombre %>">
+                                <% } else { %>
+                                    <img src="/img/default.jpg" alt="Sin imagen">
+                                    <% } %>
+                                        <h3>
+                                            <%= producto.nombre %>
+                                        </h3>
+                                        <p>
+                                            <%= producto.descripcion %>
+                                        </p>
+                                        <p><strong>$<%= producto.precio %></strong></p>
+                        </div>
+                        <% }) %>
+                            <% } %>
+        </div>
+    </section>
+    <%- include('partials/footer.ejs') %>
